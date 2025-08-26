@@ -4,7 +4,9 @@ from .config import settings
 from typing import AsyncGenerator
 from urllib.parse import quote_plus
 
-SQLALCHEMY_DATABASE_URL = f'postgresql+asyncpg://{settings.database_username}:{quote_plus(settings.database_password)}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
+SQLALCHEMY_DATABASE_URL = f'postgresql+asyncpg://{settings.database_username}:{quote_plus(settings.database_password)}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}?sslmode=require'
+
+
 print(SQLALCHEMY_DATABASE_URL)
 
 # Create the async engine
