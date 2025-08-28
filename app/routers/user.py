@@ -35,8 +35,8 @@ async def create_user(user: schemas.CreateUser, db: AsyncSession = Depends(get_d
 
 @router.get("/get-user-details", response_model = schemas.UserOut)
 async def get_user(db: AsyncSession = Depends(get_db), curr_user: schemas.UserOut = Depends(oauth2.get_current_user)):
-    print(f"from func{curr_user}")
-    print(type(curr_user.id),type(curr_user.email))
+    # print(f"from func{curr_user}")
+    # print(type(curr_user.id),type(curr_user.email))
     return curr_user
 
    

@@ -11,3 +11,5 @@ venv/
 
 # reports and generated files
 reports/
+
+ssl/

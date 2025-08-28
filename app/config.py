@@ -13,6 +13,7 @@ class Settings(BaseSettings):
     API_KEY: str
     API_SECRET: str
     REDIRECT_URI: str
+    SSL_CERT_PATH: str
 
 
 

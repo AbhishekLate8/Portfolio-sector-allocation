@@ -1,18 +1,11 @@
-from fastapi import FastAPI, Response, status, HTTPException, Depends
-from .config import settings
-from .import models
+from fastapi import FastAPI
 from . database import engine
 from . routers import user, auth, holdings, reports
-import asyncio
 from .database import Base,AsyncSessionLocal
 from .services import set_instruments_metadata
-from sqlalchemy.ext.asyncio import AsyncSession
 from .tasks.cleanup import register_cleanup
 
 
-CLIENT_ID = settings.API_KEY
-CLIENT_SECRET = settings.API_SECRET
-UPSTOX_REDIRECT_URI = settings.REDIRECT_URI
 
 app = FastAPI()
 
