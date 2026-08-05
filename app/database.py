@@ -11,13 +11,13 @@ from pathlib import Path
 
 # Load Supabase certificate
 ssl_file_path =Path(settings.SSL_CERT_PATH)  
-print(Path(ssl_file_path))
+# print(Path(ssl_file_path)) # for debug purpose
 ssl_context = ssl.create_default_context(cafile=ssl_file_path)
 
 SQLALCHEMY_DATABASE_URL = f'postgresql+asyncpg://{settings.database_username}:{quote_plus(settings.database_password)}@{settings.database_hostname}:{settings.database_port}/{settings.database_name}'
 
 
-print(SQLALCHEMY_DATABASE_URL)
+# print(SQLALCHEMY_DATABASE_URL)  # for debug purpose
 
 # Create the async engine
 engine = create_async_engine(SQLALCHEMY_DATABASE_URL,
