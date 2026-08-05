@@ -5,12 +5,13 @@ from fastapi import Depends, status, HTTPException
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.future import select
+from .config import settings
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl = 'login')
 
-SECRET_KEY = '4bf2348da32ed92fc173d4fbf97f96c7993a07a0a5b0b1594ea682601264b389'
-ALGORITHM = "HS256"
-ACCESS_TOKEN_EXPIRE_MINUTES = 30
+SECRET_KEY = settings.secret_key
+ALGORITHM = settings.algorithm
+ACCESS_TOKEN_EXPIRE_MINUTES = settings.access_token_expire_minutes
 
 IST = timezone(timedelta(hours=5, minutes=30))
 def ceate_access_token(data: dict):
